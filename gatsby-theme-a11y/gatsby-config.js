@@ -13,10 +13,17 @@ module.exports = {
       {
           resolve: "gatsby-source-filesystem",
           options: {
-              path: "pages",
+              path: "src/markdown/blog",
               name: `blog`
           }
       },
+      {
+        resolve: "gatsby-source-filesystem",
+        options: {
+            path: "src/markdown/portfolio",
+            name: `portfolio`
+        }
+    },
      `gatsby-transformer-remark`,
       `gatsby-plugin-react-helmet`,
       // {
