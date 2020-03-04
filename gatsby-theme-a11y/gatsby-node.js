@@ -5,14 +5,14 @@ const fs = require("fs")
 //1. make sure the pages directory exists
 //if the pages directory does not exist, it will create it
 
-exports.onPreBootstrap = ({ reporter }, options) => {
-    const contentPath = options.contentPath || "blog"
-
-    if(!fs.existsSync(contentPath)){
-        reporter.info(`creating the ${contentPath} directory`)
-        fs.mkdirSync(contentPath)
-    }
-}
+// exports.onPreBootstrap = ({ reporter }, options) => {
+//     const contentPath = options.contentPath || "src/markdown"
+// //check for src folder first, then markdown folder
+//     if(!fs.existsSync(contentPath)){
+//         reporter.info(`creating the ${contentPath} directory`)
+//         fs.mkdirSync(contentPath)
+//     }
+// }
 
 //create a slug field
 
@@ -74,7 +74,7 @@ exports.createPages = async ({ graphql, actions }, options) => {
     const next = index === 0 ? null : blogPosts[index - 1].node
 
     createPage({
-      path: blogPath + post.node.fields.slug,
+      path: post.node.fields.slug,
       component: blogPost,
       context: {
         title: post.node.frontmatter.title,
@@ -134,7 +134,7 @@ exports.createPages = async ({ graphql, actions }, options) => {
       const next = index === 0 ? null : portfolioPosts[index - 1].node
 
       createPage({
-        path: portfolioPath + post.node.fields.slug,
+        path: post.node.fields.slug,
         component: portfolioPost,
         context: {
           title: post.node.frontmatter.title,
