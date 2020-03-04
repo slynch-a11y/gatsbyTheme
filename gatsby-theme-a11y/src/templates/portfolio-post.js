@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { Link } from "gatsby"
 // import Header from "../components/header"
  import Footer from "../components/footer"
 // import SEO from "../components/seo"
@@ -9,7 +9,7 @@ class PortfolioPostTemplate extends React.Component {
     console.log("this.props", this.props)
 
     //  const siteTitle = this.props.data.site.siteMetadata.title
-    const { title, html, date, description, previous, next } = this.props.pageContext
+    const { title, html, date, previous, next } = this.props.pageContext
 
     return (
       <div>

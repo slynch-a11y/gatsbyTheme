@@ -1,19 +1,20 @@
 
-module.exports = ({markdownPath = "src/markdown", blogPath="blog", portfolioPath="portfolio", basePath = "/"}) => ({
+module.exports = {
   siteMetadata: {
     title: `Gatsby A11y-Ready Theme`,
     author: `Sarah Lynch`,
     description: `An accessibility-ready Gatsby theme.`,
-    // siteUrl: `url-for-demo-goes-here`,
     social: {
       twitter: `sarah_e_lynch`,
+      linkedIn: `sarah-lynch-7257028`,
+      email: `myemail@email.com`
     },
   },
   plugins: [
       {
           resolve: "gatsby-source-filesystem",
           options: {
-              path: markdownPath,
+              path: "src/markdown",
               name: `markdown`
           }
       },
@@ -40,4 +41,4 @@ module.exports = ({markdownPath = "src/markdown", blogPath="blog", portfolioPath
         },
       },
     ],
-  })
+  }
