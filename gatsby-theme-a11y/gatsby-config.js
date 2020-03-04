@@ -5,9 +5,9 @@ module.exports = {
     author: `Sarah Lynch`,
     description: `An accessibility-ready Gatsby theme.`,
     social: {
-      twitter: `sarah_e_lynch`,
-      linkedIn: `sarah-lynch-7257028`,
-      email: `myemail@email.com`
+      myTwitter: `sarah_e_lynch`,
+      myLinkedIn: `sarah-lynch-7257028`,
+      myEmail: `myemail@email.com`
     },
   },
   plugins: [

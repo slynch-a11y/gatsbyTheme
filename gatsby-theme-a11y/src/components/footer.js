@@ -2,10 +2,15 @@ import React from "react"
 //  import { FaTwitter, FaLinkedinIn, FaRegEnvelope } from "react-icons";
 import { StaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+
+
 class Footer extends React.Component {
   render() {
     console.log("this.props", this.props)
-    const { email, twitter, linkedIn } = this.props.data.site.siteMetadata.social
+    const { myEmail, myTwitter, myLinkedIn } = this.props.data.site.siteMetadata.social
  
 
     return (
@@ -15,18 +20,18 @@ class Footer extends React.Component {
         <nav class="contact-info" aria-label="social">
           <ul>
             <li>
-              <a href={"mailto:" + email} aria-label="Email">{email}
-              {/* <FaRegEnvelope aria-hidden="true" /> */}
+              <a href={"mailto:" + myEmail} aria-label="Email">
+              <FontAwesomeIcon icon={faEnvelope} aria-hidden="true" />
               </a>
             </li>
             <li>
-              <a href={"https://twitter.com/" + twitter} aria-label="Twitter">Twitter
-              {/* <FaTwitter aria-hidden="true" /> */}
+              <a href={"https://twitter.com/" + myTwitter} aria-label="Twitter">
+              <FontAwesomeIcon icon={faTwitter} aria-hidden="true" />
               </a>
             </li>
             <li>
-              <a href={"https://www.linkedin.com/in/" + linkedIn} aria-label="LinkedIn">LinkedIn
-              {/* <FaLinkedinIn aria-hidden="true" /> */}
+              <a href={"https://www.linkedin.com/in/" + myLinkedIn} aria-label="LinkedIn">
+              <FontAwesomeIcon icon={faLinkedinIn} aria-hidden="true" />
               </a>
             </li>
           </ul>
@@ -53,9 +58,9 @@ export default props => (
             title
             social
             {
-              twitter
-              linkedIn
-              email
+              myTwitter
+              myLinkedIn
+              myEmail
             }
           }
         }
