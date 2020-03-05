@@ -2,7 +2,8 @@
 import React from "react"  
 import { graphql, StaticQuery, Link } from "gatsby"   
 import { Index } from "elasticlunr" 
-// import { FaSearch } from 'react-icons/fa'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
   class Search extends React.Component {
     state = {
@@ -39,7 +40,7 @@ import { Index } from "elasticlunr"
             <form class="search" id="js-search" role="search">
             <input type="text" placeholder="Search this site" aria-label="search this site" name="search" value={this.state.query} onChange={this.search} />  
             <button type="submit" class="search-button" aria-label="submit" onClick={this.showResults}>
-            {/* <FaSearch /> */}
+            <FontAwesomeIcon icon={faSearch} aria-hidden="true" />
             </button>
             </form>
               {this.state.showSearch ? 

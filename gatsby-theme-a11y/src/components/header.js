@@ -1,7 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
-// import { FaAlignJustify, FaSearch, FaPencilAlt, FaWindowClose } from 'react-icons/fa'
 import Search from "./search" 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAlignJustify, faSearch, faPencilAlt, faWindowClose } from "@fortawesome/free-solid-svg-icons";
 
   class Header extends React.Component {
     state = {
@@ -48,7 +49,7 @@ import Search from "./search"
     </div>  
       <nav aria-label="primary">
       <button class="navbar-toggle" id="js-navbar-toggle" onClick={this.toggleMenu} aria-expanded="false" aria-label="menu">
-      {/* <FaAlignJustify /> */}menu
+      <FontAwesomeIcon icon={faAlignJustify} aria-hidden="true" fixedWidth />
       </button>
         <ul class="main-nav" id="js-menu">
           <li><Link to="/">Home</Link></li>
@@ -63,13 +64,13 @@ import Search from "./search"
       <div class="brand-search-inner">
       <div class="logo">
         <Link to="/">
-            {/* <FaPencilAlt aria-hidden="true" />  */}
+           <FontAwesomeIcon icon={faPencilAlt} aria-hidden="true" />
             My A11y Blog</Link>
       </div>
       <button class="search-toggle" id="js-search-toggle" onClick={this.toggleSearch} aria-expanded="false" aria-label="open search">
-      {/* {this.state.searchOpen ?  
-      <FaWindowClose id="search-image" /> :  
-      <FaSearch id="search-image" /> } */}
+      {this.state.searchOpen ?  
+      <FontAwesomeIcon icon={faWindowClose} id="search-image" aria-hidden="true" fixedWidth /> :  
+      <FontAwesomeIcon icon={faSearch} id="search-image" aria-hidden="true" fixedWidth /> }
       </button>
       </div>
     </div>
