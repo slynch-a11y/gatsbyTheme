@@ -5,6 +5,8 @@ import { StaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAlignJustify, faSearch, faPencilAlt, faWindowClose } from "@fortawesome/free-solid-svg-icons";
+import { Layout as ThemeLayout } from 'theme-ui'
+import { Grid } from 'theme-ui'
 
   class Header extends React.Component {
     state = {
@@ -42,10 +44,13 @@ import { faAlignJustify, faSearch, faPencilAlt, faWindowClose } from "@fortaweso
     }
 
     render() {
+
       console.log("header props", this.props)
+      console.log("theme", ThemeLayout)
       const { headerImage } = this.props
     return (
-  <header>
+
+      <header>
     <div class="navbar" aria-label="primary">
     <div class="jump-menu">
       <a href="#main">Skip to Main Content</a>
@@ -60,6 +65,14 @@ import { faAlignJustify, faSearch, faPencilAlt, faWindowClose } from "@fortaweso
         </ul>
       </nav>
     </div>
+    <Grid width={[ 128, null, 192 ]}>
+
+  <span>hello</span>
+  <span>hello</span>
+  <span bg='primary'>hello</span>
+  <span>hello</span>
+
+</Grid>
     <div class="brand-search-bar">
       <div class="brand-search-inner">
       <div class="logo">
@@ -77,6 +90,7 @@ import { faAlignJustify, faSearch, faPencilAlt, faWindowClose } from "@fortaweso
       <Search />
       {headerImage ? headerImage : null}
   </header>
+
   )
   }
 }

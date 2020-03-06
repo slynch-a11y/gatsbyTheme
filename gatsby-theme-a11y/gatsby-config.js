@@ -20,6 +20,7 @@ module.exports = {
       },
      `gatsby-transformer-remark`,
       `gatsby-plugin-react-helmet`,
+      `gatsby-plugin-theme-ui`,
       // {
       //   resolve: `gatsby-plugin-typography`,
       //   options: {
