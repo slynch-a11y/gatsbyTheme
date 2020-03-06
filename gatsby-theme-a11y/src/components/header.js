@@ -1,6 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
-import Search from "./search" 
+import Search from "./search"
+import { StaticQuery, graphql } from "gatsby"
+import PropTypes from "prop-types"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAlignJustify, faSearch, faPencilAlt, faWindowClose } from "@fortawesome/free-solid-svg-icons";
 
@@ -25,7 +27,7 @@ import { faAlignJustify, faSearch, faPencilAlt, faWindowClose } from "@fortaweso
     toggleSearch = event => {
       const searchToggle = document.getElementById('js-search-toggle')
       const searchForm = document.getElementById('js-search')
-   
+
       if (!this.state.searchOpen) {
         searchForm.classList.add("search-active")
         this.setState({searchOpen: true})
@@ -34,28 +36,26 @@ import { faAlignJustify, faSearch, faPencilAlt, faWindowClose } from "@fortaweso
         searchForm.classList.remove("search-active")
         this.setState({searchOpen: false})
         searchToggle.setAttribute("aria-expanded", "false")
-        
+
       }
 
     }
-    
+
     render() {
+      console.log("header props", this.props)
       const { headerImage } = this.props
     return (
   <header>
     <div class="navbar" aria-label="primary">
     <div class="jump-menu">
       <a href="#main">Skip to Main Content</a>
-    </div>  
+    </div>
       <nav aria-label="primary">
       <button class="navbar-toggle" id="js-navbar-toggle" onClick={this.toggleMenu} aria-expanded="false" aria-label="menu">
       <FontAwesomeIcon icon={faAlignJustify} aria-hidden="true" fixedWidth />
       </button>
         <ul class="main-nav" id="js-menu">
-          <li><Link to="/">Home</Link></li>
           <li><Link to="/portfolio">Portfolio</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
           <li><Link to="/blog">Blog</Link></li>
         </ul>
       </nav>
@@ -65,11 +65,11 @@ import { faAlignJustify, faSearch, faPencilAlt, faWindowClose } from "@fortaweso
       <div class="logo">
         <Link to="/">
            <FontAwesomeIcon icon={faPencilAlt} aria-hidden="true" />
-            My A11y Blog</Link>
+            My A11y Gatsby Theme</Link>
       </div>
       <button class="search-toggle" id="js-search-toggle" onClick={this.toggleSearch} aria-expanded="false" aria-label="open search">
-      {this.state.searchOpen ?  
-      <FontAwesomeIcon icon={faWindowClose} id="search-image" aria-hidden="true" fixedWidth /> :  
+      {this.state.searchOpen ?
+      <FontAwesomeIcon icon={faWindowClose} id="search-image" aria-hidden="true" fixedWidth /> :
       <FontAwesomeIcon icon={faSearch} id="search-image" aria-hidden="true" fixedWidth /> }
       </button>
       </div>

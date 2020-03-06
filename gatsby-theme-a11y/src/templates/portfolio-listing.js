@@ -1,11 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
-// import Header from "./header"
-// import Footer from "./footer"
+import Layout from "../components/layout"
 
 class PortfolioListing extends React.Component {
   render() {
-    return(<p>Welcome to my Portfolio</p>)
+    return(<Layout> <h2>my portfolio listing</h2></Layout>)
 
   }
 }
