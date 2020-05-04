@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
  import Layout from "../components/layout"
  import SEO from "../components/seo"
+ import { Styled } from "theme-ui"
 
 class PortfolioPostTemplate extends React.Component {
   render() {
@@ -12,9 +13,8 @@ class PortfolioPostTemplate extends React.Component {
 
     return (
       <div>
-        {/* <SEO title={title}
-          description={description} /> */}
-      <Layout>
+        <SEO title={title} />
+      <Layout location={this.props.location.pathname}>
         <main id="main" class="main" tabindex="-1">
           <h1>{title}</h1>
           {/* <h2>{siteTitle}</h2> */}
@@ -32,16 +32,16 @@ class PortfolioPostTemplate extends React.Component {
         >
           <li>
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
+              <Styled.a as={Link} to={previous.fields.slug} rel="prev">
                 ← {previous.frontmatter.title}
-              </Link>
+              </Styled.a>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.fields.slug} rel="next">
+              <Styled.a as={Link} to={next.fields.slug} rel="next">
                 {next.frontmatter.title} →
-              </Link>
+              </Styled.a>
             )}
           </li>
         </ul>

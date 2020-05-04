@@ -1,13 +1,13 @@
 ---
-title: First Post
+title: First Portfolio Post
 date: "2019-07-31"
-description: "this is another blog post"
-tags: blog, first, interesting
+description: "this is my first portfolio post"
+tags: portfolio, first, interesting
 ---
 
 # My Heading
 
-This is my first blog post!
+This is my first portfolio post!
 
 ## My second heading
 

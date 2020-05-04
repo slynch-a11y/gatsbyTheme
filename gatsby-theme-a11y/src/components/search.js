@@ -4,6 +4,9 @@ import { graphql, StaticQuery, Link } from "gatsby"
 import { Index } from "elasticlunr" 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { Grid, Styled, Input, Button, Box } from 'theme-ui'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 
   class Search extends React.Component {
     state = {
@@ -37,17 +40,20 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
     render() {  
         return (  
             <div class="search-region">
-            <form class="search" id="js-search" role="search">
-            <input type="text" placeholder="Search this site" aria-label="search this site" name="search" value={this.state.query} onChange={this.search} />  
-            <button type="submit" class="search-button" aria-label="submit" onClick={this.showResults}>
+            <Box as="form" class="search" id="js-search" role="search">
+              <div sx={{whiteSpace: "nowrap"}}>
+            <Input sx={{display: "inline", width: "auto", marginLeft: "20px", marginRight: "5px"}} type="text" placeholder="Search this site" aria-label="search" name="search" value={this.state.query} onChange={this.search} />  
+            <Button sx={{backgroundColor: "white", color: "purple"}} type="submit" class="search-button" aria-label="submit" onClick={this.showResults}>
+            
             <FontAwesomeIcon icon={faSearch} aria-hidden="true" />
-            </button>
-            </form>
+            </Button>
+            </div>
+            </Box>
               {this.state.showSearch ? 
-                (<div className="search-results"><div class="search-results-container" role="alert">Search Results:<ul>  
+                (<div sx={{marginTop: "20px"}}><div sx={{marginLeft: "25px"}} role="alert">Search Results:<ul sx={{listStyleType: "none"}}>  
                 {this.state.results.map(page => (  
-                <li key={page.id}>  
-                <Link to={"/" + page.slug}>{page.title}</Link> 
+                <li key={page.id} sx={{marginLeft: "-40px"}}>  
+                <Styled.a sx={{color: "accent"}} as={Link} to={"/" + page.slug}>{page.title}</Styled.a> 
                 </li> 
                 ))}  
                 </ul> 

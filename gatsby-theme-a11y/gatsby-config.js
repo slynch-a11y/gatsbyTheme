@@ -3,7 +3,9 @@ module.exports = {
   siteMetadata: {
     title: `Gatsby A11y-Ready Theme`,
     author: `Sarah Lynch`,
+    url: "https://www.sarahlynch.dev",
     description: `An accessibility-ready Gatsby theme.`,
+    image: "/images/bunnies.jpg",
     social: {
       myTwitter: `sarah_e_lynch`,
       myLinkedIn: `sarah-lynch-7257028`,

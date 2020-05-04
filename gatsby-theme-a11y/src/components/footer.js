@@ -5,6 +5,9 @@ import PropTypes from "prop-types"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
+import { Grid, Styled, Input, Button, Box, NavLink, Flex, Container } from 'theme-ui'
 
 
 class Footer extends React.Component {
@@ -15,33 +18,40 @@ class Footer extends React.Component {
 
     return (
   <footer>
-    <div class="content-wrap">
-      <div class="tagline">Connect with me!</div>
-        <nav class="contact-info" aria-label="social">
-          <ul>
-            <li>
-              <a href={"mailto:" + myEmail} aria-label="Email">
-              <FontAwesomeIcon icon={faEnvelope} aria-hidden="true" />
-              </a>
-            </li>
-            <li>
-              <a href={"https://twitter.com/" + myTwitter} aria-label="Twitter">
-              <FontAwesomeIcon icon={faTwitter} aria-hidden="true" />
-              </a>
-            </li>
-            <li>
-              <a href={"https://www.linkedin.com/in/" + myLinkedIn} aria-label="LinkedIn">
-              <FontAwesomeIcon icon={faLinkedinIn} aria-hidden="true" />
-              </a>
-            </li>
-          </ul>
-      </nav>
-    <div>
+  
+   <div sx={{
+      mx: 'auto', textAlign: "center"
+    }}>
+      <div><em>Connect with me!</em></div>
+
+
+      <Flex as='nav' aria-label="social" sx={{alignItems: "center", justifyContent: "center", marginLeft: "-40px"}}>
+  <ul sx={{listStyleType: "none"}}>
+    <li sx={{display: "inline-block"}}>
+  <NavLink variant="socialNav" href={"mailto:" + myEmail} aria-label="Email" p={20}>
+    <FontAwesomeIcon icon={faEnvelope} aria-hidden="true" />
+  </NavLink>
+  </li>
+  <li sx={{display: "inline-block"}}>
+  <NavLink variant="socialNav" href={"https://twitter.com/" + myTwitter} aria-label="Twitter" p={20}>
+    <FontAwesomeIcon icon={faTwitter} aria-hidden="true" />
+  </NavLink>
+  </li>
+  <li sx={{display: "inline-block"}}>
+  <NavLink variant="socialNav" href={"https://www.linkedin.com/in/" + myLinkedIn} aria-label="LinkedIn" p={20}>
+   <FontAwesomeIcon icon={faLinkedinIn} aria-hidden="true" />
+  </NavLink>
+  </li>
+  </ul>
+</Flex>
+      
+    <div sx={{marginBottom: "30px"}}>
       © {new Date().getFullYear()} Built with
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-    </div>
-  </div>
+          <Styled.a href="https://www.gatsbyjs.org">Gatsby</Styled.a>
+ </div>
+ </div>
+ 
   </footer>
 )
 

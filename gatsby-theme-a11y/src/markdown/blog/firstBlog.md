@@ -1,14 +1,10 @@
 ---
-title: First Post
-date: "2019-07-31"
-description: "this is another blog post"
-tags: blog, first, interesting
+title: First Blog Post
+date: "2020-02-29"
+description: "this is my first"
+tags: blog, first, exciting
 ---
-
-# My Heading
 
 This is my first blog post!
 
-## My second heading
-
-Blah blah blah.  Isn't that interesting?
+Blah blah blah.  Isn't that interesting? turtles are awesome.

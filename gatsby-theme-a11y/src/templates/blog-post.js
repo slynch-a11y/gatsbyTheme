@@ -2,20 +2,20 @@ import React from "react"
 import { Link } from "gatsby"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
+import { Styled } from "theme-ui"
 
 class BlogPostTemplate extends React.Component {
   render() {
-    console.log("this.props", this.props)
+    
 
 
     // const siteTitle = this.props.data.site.siteMetadata.title
-    const { title, html, date, description, previous, next } = this.props.pageContext
-
+    const { title, html, date, description, previous, next, slug } = this.props.pageContext
+    console.log("this.props blogPost", this.props.pageContext)
     return (
       <div>
-        <SEO title={title}
-          description={description} />
-      <Layout>
+        <SEO title={title} />
+      <Layout location={this.props.location.pathname}>
         <main id="main" class="main" tabindex="-1">
           <h1>{title}</h1>
           {/* <h2>{siteTitle}</h2> */}
@@ -33,16 +33,16 @@ class BlogPostTemplate extends React.Component {
         >
           <li>
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
+              <Styled.a as={Link} to={previous.fields.slug} rel="prev">
                 ← {previous.frontmatter.title}
-              </Link>
+              </Styled.a>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.fields.slug} rel="next">
+              <Styled.a as={Link} to={next.fields.slug} rel="next">
                 {next.frontmatter.title} →
-              </Link>
+              </Styled.a>
             )}
           </li>
         </ul>
