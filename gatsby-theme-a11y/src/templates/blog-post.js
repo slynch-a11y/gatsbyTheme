@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import { Styled } from "theme-ui"
+import Img from "gatsby-image"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -10,16 +11,30 @@ class BlogPostTemplate extends React.Component {
 
 
     // const siteTitle = this.props.data.site.siteMetadata.title
-    const { title, html, date, description, previous, next, slug } = this.props.pageContext
-    console.log("this.props blogPost", this.props.pageContext)
+    const { title, html, date, description, previous, next, slug, attachments, featuredImage, featuredImageAlt } = this.props.pageContext
+    console.log("this.props blogPost", featuredImage.childImageSharp.fixed)
     return (
       <div>
         <SEO title={title} />
       <Layout location={this.props.location.pathname}>
-        <main id="main" class="main" tabindex="-1">
-          <h1>{title}</h1>
+       
+          <Styled.h1>{title}</Styled.h1>
           {/* <h2>{siteTitle}</h2> */}
           <p>{date}</p>
+          <Img fluid={featuredImage.childImageSharp.fluid} alt={featuredImageAlt} />
+
+          
+       
+          {/* {
+            attachments.map((elem, index) => {
+              return (
+                <div key={index}>
+<img src={elem.publicURL} />
+</div>
+              )
+              
+            })
+          } */}
           <div dangerouslySetInnerHTML={{ __html: html }} />
           <hr/>
           <ul
@@ -46,7 +61,7 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </ul>
-        </main>
+       
        </Layout>
       </div>
     )

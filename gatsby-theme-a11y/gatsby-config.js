@@ -23,12 +23,21 @@ module.exports = {
      `gatsby-transformer-remark`,
       `gatsby-plugin-react-helmet`,
       `gatsby-plugin-theme-ui`,
-      // {
-      //   resolve: `gatsby-plugin-typography`,
-      //   options: {
-      //     pathToConfigModule: `src/utils/typography`,
-      //   },
-      // },
+      {
+        resolve: `gatsby-plugin-sharp`,
+        options: {
+          useMozJpeg: false,
+          stripMetadata: true,
+          defaultQuality: 75,
+        },
+      },
+      `gatsby-transformer-sharp`,
+      {
+        resolve: `gatsby-plugin-typography`,
+        options: {
+          pathToConfigModule: `src/utils/typography`,
+        },
+      },
       {
         resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
         options: {

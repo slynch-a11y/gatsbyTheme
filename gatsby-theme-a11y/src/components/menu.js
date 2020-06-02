@@ -7,17 +7,17 @@ import { jsx } from 'theme-ui'
 import { css } from '@emotion/core'
 const Menu = () => (
 
-  <div css={css`margin-left: -25px; margin-top: -25px;`}>
+  <div css={css`margin-bottom: -25px; margin-left: -30px;`}>
 
 <Flex as='nav' aria-label="primary">
   <ul sx={{listStyleType: "none"}}>
     <li sx={{display: "inline-block"}}>
-  <NavLink as={Link} to="/blog" p={20}>
+  <NavLink as={Link} to="/blog" p={2}>
     Blog
   </NavLink>
   </li>
   <li sx={{display: "inline-block"}}>
-  <NavLink as={Link} to="/portfolio" p={20}>
+  <NavLink as={Link} to="/portfolio" p={2}>
     Portfolio
   </NavLink>
   </li>

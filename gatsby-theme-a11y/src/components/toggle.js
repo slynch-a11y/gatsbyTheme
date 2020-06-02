@@ -5,7 +5,8 @@ import { Grid, Styled, Button } from 'theme-ui'
 import { Link } from "gatsby"
 import { css } from '@emotion/core'
 import { useColorMode } from 'theme-ui'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
 export default Logo => {
 
@@ -14,13 +15,17 @@ export default Logo => {
 
     return (
    
-        <div sx={{marginTop: "20px", display: "flex", justifyContent: "center"}}>
+        <div sx={{display: "flex", justifyContent: "center"}}>
     
 <Button
-        onClick={e => {
+        sx={{width: "100%", borderRadius: "0", border: "none"}} onClick={e => {
           setColorMode(colorMode === 'default' ? 'dark' : 'default')
-        }}>Toggle Colors
-        {/* Toggle {colorMode === 'default' ? 'Dark' : 'Light'} */}
+        }}><span sx={{marginRight: "2px"}}>Toggle Colors  </span>
+          { colorMode === 'default' ? <FontAwesomeIcon icon={faMoon} aria-hidden="true" /> : <FontAwesomeIcon icon={faSun} aria-hidden="true" />
+} 
+
+
+
       </Button>
 </div>
     )

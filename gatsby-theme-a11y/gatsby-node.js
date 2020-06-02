@@ -1,6 +1,8 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const fs = require("fs")
+const { fmImagesToRelative } = require('gatsby-remark-relative-images');
+
 
 //1. make sure the pages directory exists
 //if the pages directory does not exist, it will create it
@@ -22,6 +24,7 @@ exports.onPreBootstrap = ({ reporter }, options) => {
 //create a slug field
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
+  //fmImagesToRelative(node);
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({ node, getNode })
@@ -38,23 +41,14 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ graphql, actions }, options) => {
   const { createPage } = actions
 
-  const basePath ="/"
-  createPage({
-    path: basePath,
-    component: require.resolve(`./src/templates/home-page.js`)
-  })
+  
 
   const blogPath = "blog"
-
-  createPage({
-    path: blogPath,
-    component: require.resolve(`./src/templates/blog-listing.js`)
-  })
   const blogPost = require.resolve(`./src/templates/blog-post.js`)
   const blogResult = await graphql(
     `
       query {
-        allMarkdownRemark(filter: {parent: {}, fileAbsolutePath: {regex: "/blog/"}})
+        allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}, filter: {parent: {}, fileAbsolutePath: {regex: "/blog/"}})
           {
           edges {
             node {
@@ -66,8 +60,33 @@ exports.createPages = async ({ graphql, actions }, options) => {
                 title,
                 tags,
                 date(formatString: "MMMM DD, YYYY"),
-                description
+                description,
+                featuredImage {
+                  childImageSharp {
+                    fixed(height: 150, width: 200, cropFocus: CENTER) {
+                      base64
+                      aspectRatio
+                      srcWebp
+                      srcSetWebp
+                      src
+                      srcSet
+                     width
+                     height
+                    }
+                    fluid(maxWidth: 800) {
+                      src
+                     srcSet
+                     srcSetWebp
+                     base64
+                      aspectRatio
+                 
+                    }
+                   
+                  }
+                },
+                featuredImageAlt
               }
+              excerpt(pruneLength: 150)
             }
           }
         }
@@ -99,22 +118,39 @@ exports.createPages = async ({ graphql, actions }, options) => {
         blogPath,
         previous,
         next,
+        featuredImage: post.node.frontmatter.featuredImage,
+        featuredImageAlt: post.node.frontmatter.featuredImageAlt,
+        excerpt: post.node.excerpt
       },
     })
   })
 
 
+  createPage({
+    path: blogPath,
+    component: require.resolve(`./src/templates/blog-listing.js`),
+    context: {
+      blogs: blogPosts
+    }
+  })
+
+  const basePath ="/"
+  createPage({
+    path: basePath,
+    component: require.resolve(`./src/templates/home-page.js`),
+    context: {
+      blogs: blogPosts
+    }
+  })
+
     const portfolioPath = "portfolio"
-    createPage({
-      path: portfolioPath,
-      component: require.resolve(`./src/templates/portfolio-listing.js`)
-    })
+   
     const portfolioPost = require.resolve(`./src/templates/portfolio-post.js`)
     const result = await graphql(
       `
         query {
 
-          allMarkdownRemark(filter: {parent: {}, fileAbsolutePath: {regex: "/portfolio/"}})
+          allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}, filter: {parent: {}, fileAbsolutePath: {regex: "/portfolio/"}})
           {
             edges {
               node {
@@ -126,8 +162,24 @@ exports.createPages = async ({ graphql, actions }, options) => {
                   title,
                   tags,
                   date(formatString: "MMMM DD, YYYY"),
-                  description
+                  description,
+                  featuredImage {
+                    childImageSharp {
+                      fixed(height: 150, width: 200, cropFocus: CENTER) {
+                        base64
+                        aspectRatio
+                        srcWebp
+                        srcSetWebp
+                        src
+                        srcSet
+                       width
+                       height
+                      }
+                    }
+                  },
+                  featuredImageAlt
                 }
+                excerpt(pruneLength: 150)
               }
             }
           }
@@ -141,6 +193,14 @@ exports.createPages = async ({ graphql, actions }, options) => {
 
     // Create blog posts pages.
     const portfolioPosts = result.data.allMarkdownRemark.edges
+
+    createPage({
+      path: portfolioPath,
+      component: require.resolve(`./src/templates/portfolio-listing.js`),
+      context: {
+        portfolio: portfolioPosts
+      }
+    })
 
     portfolioPosts.forEach((post, index) => {
       const previous = index === portfolioPosts.length - 1 ? null : portfolioPosts[index + 1].node

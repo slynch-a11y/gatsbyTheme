@@ -12,33 +12,33 @@ import { Grid, Styled, Input, Button, Box, NavLink, Flex, Container } from 'them
 
 class Footer extends React.Component {
   render() {
-    console.log("this.props", this.props)
+  
     const { myEmail, myTwitter, myLinkedIn } = this.props.data.site.siteMetadata.social
  
 
     return (
-  <footer>
+  <footer sx={{marginTop: "200px"}}>
   
    <div sx={{
       mx: 'auto', textAlign: "center"
     }}>
-      <div><em>Connect with me!</em></div>
+      <Styled.h2 sx={{marginBottom: "2px"}}>Connect with me!</Styled.h2>
 
 
       <Flex as='nav' aria-label="social" sx={{alignItems: "center", justifyContent: "center", marginLeft: "-40px"}}>
   <ul sx={{listStyleType: "none"}}>
     <li sx={{display: "inline-block"}}>
-  <NavLink variant="socialNav" href={"mailto:" + myEmail} aria-label="Email" p={20}>
+  <NavLink variant="socialNav" href={"mailto:" + myEmail} aria-label="Email">
     <FontAwesomeIcon icon={faEnvelope} aria-hidden="true" />
   </NavLink>
   </li>
   <li sx={{display: "inline-block"}}>
-  <NavLink variant="socialNav" href={"https://twitter.com/" + myTwitter} aria-label="Twitter" p={20}>
+  <NavLink variant="socialNav" href={"https://twitter.com/" + myTwitter} aria-label="Twitter">
     <FontAwesomeIcon icon={faTwitter} aria-hidden="true" />
   </NavLink>
   </li>
   <li sx={{display: "inline-block"}}>
-  <NavLink variant="socialNav" href={"https://www.linkedin.com/in/" + myLinkedIn} aria-label="LinkedIn" p={20}>
+  <NavLink variant="socialNav" href={"https://www.linkedin.com/in/" + myLinkedIn} aria-label="LinkedIn">
    <FontAwesomeIcon icon={faLinkedinIn} aria-hidden="true" />
   </NavLink>
   </li>

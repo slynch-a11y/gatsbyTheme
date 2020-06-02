@@ -87,7 +87,7 @@ import { Box } from 'theme-ui'
     color: 'background',
     bg: 'primary',
     minHeight: '30em'
-    
+  
   }}>
 <div>
 <Logo />
@@ -99,7 +99,7 @@ import { Box } from 'theme-ui'
 
    
 
-
+<div sx={{minHeight: "30px", backgroundColor: "#ee6c4d"}}></div>
   </header>
 
   )

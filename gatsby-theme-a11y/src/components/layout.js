@@ -17,13 +17,15 @@ const Layout = ({children, location}) => {
 return (
   <div>
  
-    { location === "/" ? <Header /> : <SmallHeader />
-    }
+   <SmallHeader />
+    
    <Container>
    
-    <main id="main" sx={{marginBottom: "50px"}}>
-    <Toggle />
-    <div sx={{marginTop: "30px"}}>
+    <main id="main" tabindex="-1" sx={{marginBottom: "50px"}}>
+    
+    <div sx={{marginTop: "50px"}}>
+  
+    <div sx={{marginBottom: "30px"}}></div>
     {children}
     </div>
     </main>

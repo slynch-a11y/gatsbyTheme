@@ -80,7 +80,7 @@ import { Box } from 'theme-ui'
       }
     `} href="#main">Skip to Main Content</Styled.a></div>
     <div sx={{color: 'background',
-        bg: 'primary',}}>
+        bg: 'primary'}}>
   <div sx={{width: "85%", margin: "auto"}}>
 <div sx={{
         p: 4,
@@ -103,6 +103,9 @@ import { Box } from 'theme-ui'
 </div>
 
 </div>
+
+<Toggle />
+
   </header>
 
   )
