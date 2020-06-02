@@ -9,7 +9,7 @@ module.exports = {
     social: {
       myTwitter: `sarah_e_lynch`,
       myLinkedIn: `sarah-lynch-7257028`,
-      myEmail: `myemail@email.com`
+      myEmail: `sarah@alum.rpi.edu`
     },
   },
   plugins: [

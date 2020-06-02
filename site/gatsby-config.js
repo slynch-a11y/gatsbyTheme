@@ -3,8 +3,8 @@ module.exports = {
       {
           resolve: "gatsby-theme-a11y",
           options: {
-              markdownPath: "src/markdown",
-              basePath: "/hello"
+              markdownPath: "src/markdown"
+              
           }
       }
   ]
