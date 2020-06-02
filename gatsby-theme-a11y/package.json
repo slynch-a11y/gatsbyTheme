@@ -9,12 +9,12 @@
     "clean": "gatsby clean"
   },
   "peerDependencies": {
-    "gatsby": "^2.19.23",
+    "gatsby": "^2.22.17",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   },
   "devDependencies": {
-    "gatsby": "^2.19.23",
+    "gatsby": "^2.22.17",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   },
