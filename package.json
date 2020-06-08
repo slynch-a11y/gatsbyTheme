@@ -3,5 +3,6 @@
   "workspaces": [
     "gatsby-theme-a11y",
     "site"
-  ]
+  ],
+  "name": "test-theme"
 }

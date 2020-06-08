@@ -12,16 +12,18 @@ export default Logo => {
 
     
     const [colorMode, setColorMode] = useColorMode()
+    const [ariaPressed, setAriaPressed] = React.useState('false')
 
     return (
    
         <div sx={{display: "flex", justifyContent: "center"}}>
     
-<Button
+<Button aria-pressed={ariaPressed}
         sx={{width: "100%", borderRadius: "0", border: "none"}} onClick={e => {
           setColorMode(colorMode === 'default' ? 'dark' : 'default')
-        }}><span sx={{marginRight: "2px"}}>Toggle Colors  </span>
-          { colorMode === 'default' ? <FontAwesomeIcon icon={faMoon} aria-hidden="true" /> : <FontAwesomeIcon icon={faSun} aria-hidden="true" />
+          setAriaPressed(colorMode === 'default' ? 'true' : 'false' )
+        }}>
+          { colorMode === 'default' ? <div><span sx={{marginRight: "2px"}}>Dark Mode  </span><FontAwesomeIcon icon={faMoon} aria-hidden="true" /></div> : <div><span sx={{marginRight: "2px"}}>Light Mode  </span><FontAwesomeIcon icon={faSun} aria-hidden="true" /></div>
 } 
 
 
