@@ -5,5 +5,11 @@
     "site"
   ],
   "name": "test-theme",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "scripts": {
+    "build": "yarn workspace site build",
+    "dev": "yarn start",
+    "start": "yarn workspace site develop"
+    
+  }
 }
