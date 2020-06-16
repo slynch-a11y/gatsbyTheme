@@ -1,4 +1,2 @@
 [build]
-  base = "gatsby-theme-a11y"
-  command = "npm i yarn && yarn && yarn build"
   publish = "gatsby-theme-a11y/public"

@@ -71,7 +71,7 @@ export default props =>  (
       query={graphql`  
           query SearchIndexQuery {  
             siteSearchIndex {  
-              index  
+            index
             }  
           }  
         `}  
