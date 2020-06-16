@@ -10,6 +10,6 @@
     "build": "yarn workspace site build",
     "dev": "yarn start",
     "start": "yarn workspace site develop"
-    
-  }
+  },
+  "dependencies": {}
 }
