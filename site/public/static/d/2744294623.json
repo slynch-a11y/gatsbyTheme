@@ -1,0 +1,1 @@
+{"errors":[{"message":"Cannot read property 'slug' of undefined","locations":[{"line":3,"column":5}],"path":["siteSearchIndex","index"]}],"data":{"siteSearchIndex":{"index":null}}}

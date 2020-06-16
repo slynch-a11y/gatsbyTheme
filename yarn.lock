@@ -7226,7 +7226,7 @@ gatsby-telemetry@^1.3.11:
 
 "gatsby-theme-a11y@https://github.com/slynch-github/gatsbyTheme.git":
   version "1.0.0"
-  resolved "https://github.com/slynch-github/gatsbyTheme.git#6ca5c25b874f757c4c148171a946b6c5a63e9723"
+  resolved "https://github.com/slynch-github/gatsbyTheme.git#f152d646f30723d12d3d275b2b62c7c34b48ef67"
 
 gatsby-transformer-remark@^2.6.53:
   version "2.8.15"

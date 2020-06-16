@@ -1,4 +1,4 @@
 [build]
-  base = "site"
+  base = "gatsby-theme-a11y"
   command = "yarn build"
-  publish = "site/public"
+  publish = "gatsby-theme-a11y/public"
