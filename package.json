@@ -11,5 +11,7 @@
     "dev": "yarn start",
     "start": "yarn workspace site develop"
   },
-  "dependencies": {}
+  "dependencies": {
+    "gatsby-cli": "^2.12.54"
+  }
 }
