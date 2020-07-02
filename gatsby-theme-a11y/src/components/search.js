@@ -55,7 +55,7 @@ import { css } from '@emotion/core'
                 (<div sx={{marginTop: "20px"}}><div role="alert" sx={{color: "headerText"}}>Search Results:<ul sx={{listStyleType: "none"}}>  
                 {this.state.results.map(page => (  
                 <li key={page.id} sx={{marginLeft: "-28px"}}>  
-                <Styled.a sx={{color: "accent"}} as={Link} to={"/" + page.slug}>{page.title}</Styled.a> 
+                <Styled.a sx={{color: "accent"}} as={Link} to={page.slug}>{page.title}</Styled.a> 
                 </li> 
                 ))}  
                 </ul> 
