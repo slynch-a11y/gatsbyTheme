@@ -9,9 +9,10 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "gatsby": "^2.19.23",
-    "gatsby-plugin-theme-ui": "^0.3.0",
     "@slynch-github/gatsby-theme-a11y": "*",
+    "gatsby": "^2.19.23",
+    "gatsby-cli": "2.12.54",
+    "gatsby-plugin-theme-ui": "^0.3.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   }
